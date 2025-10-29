@@ -28,11 +28,14 @@ namespace S19PackToolPro
             //œ‘ æBoot–≈œ¢
             this.Text_BootStartAdr.Text = fileDataManger.bootStartAddress;
             this.Text_BootLen.Text = fileDataManger.bootLength;
+
+
         }
 
         private void btn_IntegratedPkg_Click(object sender, EventArgs e)
         {
             fileDataManger.IntegratedPkg();
         }
+
     }
 }

@@ -1,0 +1,17 @@
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Debug\net7.0-windows7.0\S19PackToolPro.exe
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Debug\net7.0-windows7.0\S19PackToolPro.deps.json
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Debug\net7.0-windows7.0\S19PackToolPro.runtimeconfig.json
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Debug\net7.0-windows7.0\S19PackToolPro.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Debug\net7.0-windows7.0\S19PackToolPro.pdb
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.Form1.resources
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.csproj.GenerateResource.cache
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.AssemblyInfoInputs.cache
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.AssemblyInfo.cs
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.sourcelink.json
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\refint\S19PackToolPro.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.pdb
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\S19PackToolPro.genruntimeconfig.cache
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net7.0-windows7.0\ref\S19PackToolPro.dll

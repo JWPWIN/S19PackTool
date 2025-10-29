@@ -41,6 +41,7 @@
             Text_BootStartAdr = new TextBox();
             btn_LoadBootFile = new Button();
             btn_IntegratedPkg = new Button();
+            textBox1 = new TextBox();
             AppInfo.SuspendLayout();
             BootInfo.SuspendLayout();
             SuspendLayout();
@@ -165,11 +166,20 @@
             btn_IntegratedPkg.UseVisualStyleBackColor = true;
             btn_IntegratedPkg.Click += btn_IntegratedPkg_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(214, 340);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(557, 98);
+            textBox1.TabIndex = 5;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox1);
             Controls.Add(btn_IntegratedPkg);
             Controls.Add(btn_LoadBootFile);
             Controls.Add(BootInfo);
@@ -182,6 +192,7 @@
             BootInfo.ResumeLayout(false);
             BootInfo.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -199,5 +210,6 @@
         private TextBox Text_BootStartAdr;
         private Button btn_LoadBootFile;
         private Button btn_IntegratedPkg;
+        private TextBox textBox1;
     }
 }

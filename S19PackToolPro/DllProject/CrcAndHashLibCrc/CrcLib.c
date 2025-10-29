@@ -199,5 +199,3 @@ u32 GetCRC32_For_U32(const void *buffer, u32 len)
 
     return crc;
 }
-
-
