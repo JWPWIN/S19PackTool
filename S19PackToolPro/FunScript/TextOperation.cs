@@ -10,7 +10,8 @@ public enum FileType
     C_Code,
     C_Head,
     DBC,
-    XML
+    XML,
+    HEX
 }
 
 static public class TextOperation
@@ -44,6 +45,10 @@ static public class TextOperation
         else if (type == FileType.XML)
         {
             suffix = ".xml";
+        }
+        else if (type == FileType.HEX)
+        {
+            suffix = ".Hex";
         }
         else
         {

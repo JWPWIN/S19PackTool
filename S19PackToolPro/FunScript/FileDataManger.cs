@@ -196,9 +196,44 @@ public class FileDataManger
         Array.Copy(selfCrcCheckData, 0, AppValidityInfo, selfCrcArr.Length, selfCrcCheckData.Length);
 
 
+        //合并APP及BOOT程序包
+        string AppAndBoot_2In1_Str = string.Empty;
 
-        MessageBox.Show(selfCrc.ToString("X2"));
+        AppAndBoot_2In1_Str += appFileString;
+        AppAndBoot_2In1_Str += bootFileString;
 
+        uint _appStartAdd = (uint)(Int32.Parse(appStartAddress, System.Globalization.NumberStyles.HexNumber));
+        uint _appLen = (uint)(Int32.Parse(appLength, System.Globalization.NumberStyles.HexNumber));
+        uint _appendAppDataAdd_L1 = _appStartAdd + _appLen;
+
+        //校验和CHKSUM = 0xFF - （（字节计数 + 地址 + 数据和 ）&0xFF）
+        uint _tmp = 25;
+        _tmp += (_appendAppDataAdd_L1 & 0xFF) + (_appendAppDataAdd_L1 >> 8 & 0xFF) + (_appendAppDataAdd_L1 >> 16 & 0xFF) + (_appendAppDataAdd_L1 >> 24 & 0xFF);
+        string _tmpData = string.Empty;
+        for (int i = 0; i < 32; i++)
+        {
+            _tmpData += AppValidityInfo[i].ToString("X2");
+            _tmp += AppValidityInfo[i];
+        }
+        _tmp &= 0xFF;
+
+        byte checksum_line1 = (byte)(0xFF - _tmp);
+        AppAndBoot_2In1_Str += "S325" + _appendAppDataAdd_L1.ToString("X2") + _tmpData + checksum_line1.ToString("X2") + "\r\n";
+
+        _tmp = 25;
+        uint _appendAppDataAdd_L2 = _appendAppDataAdd_L1 + 0x20;
+        _tmp += (_appendAppDataAdd_L2 & 0xFF) + (_appendAppDataAdd_L2 >> 8 & 0xFF) + (_appendAppDataAdd_L2 >> 16 & 0xFF) + (_appendAppDataAdd_L2 >> 24 & 0xFF);
+        _tmpData = string.Empty;
+        for (int i = 32; i < 64; i++)
+        {
+            _tmpData += AppValidityInfo[i].ToString("X2");
+            _tmp += AppValidityInfo[i];
+        }
+        _tmp &= 0xFF;
+        byte checksum_line2 = (byte)(0xFF - _tmp);
+        AppAndBoot_2In1_Str += "S325" + _appendAppDataAdd_L2.ToString("X2") + _tmpData + checksum_line2.ToString("X2");
+
+        TextOperation.WriteData("AppAndBoot_2In1",FileType.HEX,AppAndBoot_2In1_Str);
 
 }
 
