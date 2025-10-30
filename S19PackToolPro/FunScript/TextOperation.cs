@@ -11,7 +11,8 @@ public enum FileType
     C_Head,
     DBC,
     XML,
-    HEX
+    HEX,
+    S19
 }
 
 static public class TextOperation
@@ -49,6 +50,10 @@ static public class TextOperation
         else if (type == FileType.HEX)
         {
             suffix = ".Hex";
+        }
+        else if (type == FileType.S19)
+        {
+            suffix = ".S19";
         }
         else
         {

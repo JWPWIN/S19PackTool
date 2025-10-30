@@ -1,0 +1,4 @@
+﻿  ValidityInfoCrc32.c
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\ValidityInfoCrc32.c(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+    正在创建库 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\x64\Debug\CrcAndHashLibDll.lib 和对象 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\x64\Debug\CrcAndHashLibDll.exp
+  CrcAndHashLibCrc.vcxproj -> D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\x64\Debug\CrcAndHashLibDll.dll

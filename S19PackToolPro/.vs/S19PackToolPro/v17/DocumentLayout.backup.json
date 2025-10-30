@@ -7,8 +7,16 @@
       "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:funscript\\filedatamanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\dllproject\\crcandhashlibcrc\\crclib.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:dllproject\\crcandhashlibcrc\\crclib.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\funscript\\textoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:funscript\\textoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\s19packtoolpro.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:s19packtoolpro.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\dllproject\\crcandhashlibcrc\\sha256.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -23,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:dllproject\\crcandhashlibcrc\\sha256.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\funscript\\textoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:funscript\\textoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -37,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +70,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "S19PackToolPro.csproj",
+              "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\S19PackToolPro.csproj",
+              "RelativeDocumentMoniker": "S19PackToolPro.csproj",
+              "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\S19PackToolPro.csproj",
+              "RelativeToolTip": "S19PackToolPro.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-30T02:31:17.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Sha256.c",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\DllProject\\CrcAndHashLibCrc\\Sha256.c",
               "RelativeDocumentMoniker": "DllProject\\CrcAndHashLibCrc\\Sha256.c",
@@ -78,8 +90,7 @@
               "RelativeToolTip": "DllProject\\CrcAndHashLibCrc\\Sha256.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-10-29T08:56:20.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T08:56:20.234Z"
             },
             {
               "$type": "Document",
@@ -89,27 +100,26 @@
               "RelativeDocumentMoniker": "FunScript\\FileDataManger.cs",
               "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\FunScript\\FileDataManger.cs",
               "RelativeToolTip": "FunScript\\FileDataManger.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAAAkwLcAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAAALUAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T09:47:39.794Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "TextOperation.cs",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\FunScript\\TextOperation.cs",
               "RelativeDocumentMoniker": "FunScript\\TextOperation.cs",
               "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\FunScript\\TextOperation.cs",
               "RelativeToolTip": "FunScript\\TextOperation.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAYwBcAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:45:25.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T09:45:25.456Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "Form1.Designer.cs",
@@ -117,36 +127,33 @@
               "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAkwB0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:40:50.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T09:40:50.197Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\Form1.cs [\u8BBE\u8BA1]",
               "RelativeToolTip": "Form1.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:38:03.143Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
+              "WhenOpened": "2025-10-28T09:38:03.143Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "S19PackToolPro",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\S19PackToolPro.csproj",
               "RelativeDocumentMoniker": "S19PackToolPro.csproj",
               "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\S19PackToolPro.csproj",
               "RelativeToolTip": "S19PackToolPro.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-29T01:10:25.014Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T01:10:25.014Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -154,25 +161,11 @@
               "RelativeToolTip": "Form1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:40:48.794Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T09:40:48.794Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CrcLib.c",
-              "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\DllProject\\CrcAndHashLibCrc\\CrcLib.c",
-              "RelativeDocumentMoniker": "DllProject\\CrcAndHashLibCrc\\CrcLib.c",
-              "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\DllProject\\CrcAndHashLibCrc\\CrcLib.c",
-              "RelativeToolTip": "DllProject\\CrcAndHashLibCrc\\CrcLib.c",
-              "ViewState": "AgIAALwAAAAAAAAAAAAAAMgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-10-29T03:07:14.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Sha256.h",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\DllProject\\CrcAndHashLibCrc\\Sha256.h",
               "RelativeDocumentMoniker": "DllProject\\CrcAndHashLibCrc\\Sha256.h",
@@ -180,12 +173,11 @@
               "RelativeToolTip": "DllProject\\CrcAndHashLibCrc\\Sha256.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-10-29T06:23:29.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T06:23:29.487Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "DllTest.c",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\DllProject\\CrcAndHashLibCrc\\DllTest.c",
               "RelativeDocumentMoniker": "DllProject\\CrcAndHashLibCrc\\DllTest.c",
@@ -193,8 +185,7 @@
               "RelativeToolTip": "DllProject\\CrcAndHashLibCrc\\DllTest.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-10-29T03:07:17.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T03:07:17.898Z"
             },
             {
               "$type": "Document",

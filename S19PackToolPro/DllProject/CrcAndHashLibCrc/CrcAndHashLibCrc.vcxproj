@@ -148,7 +148,6 @@
     <ClInclude Include="SysTypes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CrcLib.c" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DllTest.c" />
     <ClCompile Include="pch.cpp">
@@ -158,6 +157,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Sha256.c" />
+    <ClCompile Include="ValidityInfoCrc32.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

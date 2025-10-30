@@ -35,13 +35,13 @@
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CrcLib.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Sha256.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DllTest.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidityInfoCrc32.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -14,3 +14,4 @@ D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows\refi
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows\S19PackToolPro.pdb
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows\S19PackToolPro.genruntimeconfig.cache
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows\ref\S19PackToolPro.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows\S19PackToolPro.sourcelink.json

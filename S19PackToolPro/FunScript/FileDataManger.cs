@@ -86,7 +86,8 @@ public class FileDataManger
 
 
     [DllImport("CrcAndHashLibDll.dll")]
-    extern unsafe static uint GetCrc32(byte* buffer, uint len);
+    extern unsafe static uint GetCrc32ForForValidityInfo(byte* buffer, uint len);
+
     [DllImport("CrcAndHashLibDll.dll")]
     extern unsafe static byte* Add(byte* a, byte* b);
     [DllImport("CrcAndHashLibDll.dll")]
@@ -95,6 +96,7 @@ public class FileDataManger
     extern unsafe static void Sha256_PushData(byte* pData, uint ulDataLen);
     [DllImport("CrcAndHashLibDll.dll")]
     extern unsafe static byte* Sha256_GetShaValue();
+    
 
 
     /// <summary>
@@ -136,7 +138,7 @@ public class FileDataManger
             //计算APP的CRC值,AppCrc 只要计算APP-S3段的数据域校验
             fixed (byte* pCSArray = &appDataHex[0])
             {
-                AppCrc = GetCrc32(pCSArray, (uint)appDataHex.Count());
+                AppCrc = GetCrc32ForForValidityInfo(pCSArray, (uint)appDataHex.Count());
             }
 
             //计算APP的Hash值,AppHash[32] 计算（ APP起始地址4Byte+APP长度4Byte）+ APP-S3段的数据域
@@ -168,14 +170,14 @@ public class FileDataManger
 
         //计算selfCrc
         byte[] selfCrcCheckData = { (byte)(flag&0xFF),(byte)(flag>>8&0xFF),(byte)(flag>>16&0xFF),(byte)(flag>>24&0xFF),
-                                     0,0,0,(byte)(selfSize),
+                                     (byte)(selfSize),0,0,0,
                                     (byte)(validFlag&0xFF),(byte)(validFlag>>8&0xFF),(byte)(validFlag>>16&0xFF),(byte)(validFlag>>24&0xFF),
                                     (byte)(AppCrc&0xFF),(byte)(AppCrc>>8&0xFF),(byte)(AppCrc>>16&0xFF),(byte)(AppCrc>>24&0xFF),
                                     AppHash[0], AppHash[1], AppHash[2], AppHash[3], AppHash[4], AppHash[5], AppHash[6], AppHash[7], 
                                     AppHash[8], AppHash[9], AppHash[10], AppHash[11], AppHash[12], AppHash[13], AppHash[14], AppHash[15],
                                     AppHash[16], AppHash[17], AppHash[18], AppHash[19], AppHash[20], AppHash[21], AppHash[22], AppHash[23],
                                     AppHash[24], AppHash[25], AppHash[26], AppHash[27], AppHash[28], AppHash[29], AppHash[30],AppHash[31],
-                                    0,0,0,0, 0,0,0,0, 0,0,0,0
+                                    0x49,0x73,0x20,0x76, 0x61,0x6c,0x69,0x64, 0x20,0x41,0x70,0x70
                                     };
 
         uint selfCrc;
@@ -184,7 +186,7 @@ public class FileDataManger
             //计算selfCrc值
             fixed (byte* pCSArray = &selfCrcCheckData[0])
             {
-                selfCrc = GetCrc32(pCSArray, (uint)selfCrcCheckData.Count());
+                selfCrc = GetCrc32ForForValidityInfo(pCSArray, (uint)selfCrcCheckData.Count());
             }
         }
         byte[] selfCrcArr = { (byte)(selfCrc & 0xFF), (byte)(selfCrc >> 8 & 0xFF), (byte)(selfCrc >> 16 & 0xFF), (byte)(selfCrc >> 24 & 0xFF) };
@@ -207,7 +209,7 @@ public class FileDataManger
         uint _appendAppDataAdd_L1 = _appStartAdd + _appLen;
 
         //校验和CHKSUM = 0xFF - （（字节计数 + 地址 + 数据和 ）&0xFF）
-        uint _tmp = 25;
+        uint _tmp = 0x25;
         _tmp += (_appendAppDataAdd_L1 & 0xFF) + (_appendAppDataAdd_L1 >> 8 & 0xFF) + (_appendAppDataAdd_L1 >> 16 & 0xFF) + (_appendAppDataAdd_L1 >> 24 & 0xFF);
         string _tmpData = string.Empty;
         for (int i = 0; i < 32; i++)
@@ -220,7 +222,7 @@ public class FileDataManger
         byte checksum_line1 = (byte)(0xFF - _tmp);
         AppAndBoot_2In1_Str += "S325" + _appendAppDataAdd_L1.ToString("X2") + _tmpData + checksum_line1.ToString("X2") + "\r\n";
 
-        _tmp = 25;
+        _tmp = 0x25;
         uint _appendAppDataAdd_L2 = _appendAppDataAdd_L1 + 0x20;
         _tmp += (_appendAppDataAdd_L2 & 0xFF) + (_appendAppDataAdd_L2 >> 8 & 0xFF) + (_appendAppDataAdd_L2 >> 16 & 0xFF) + (_appendAppDataAdd_L2 >> 24 & 0xFF);
         _tmpData = string.Empty;
@@ -231,10 +233,11 @@ public class FileDataManger
         }
         _tmp &= 0xFF;
         byte checksum_line2 = (byte)(0xFF - _tmp);
-        AppAndBoot_2In1_Str += "S325" + _appendAppDataAdd_L2.ToString("X2") + _tmpData + checksum_line2.ToString("X2");
+        AppAndBoot_2In1_Str += "S325" + _appendAppDataAdd_L2.ToString("X2") + _tmpData + checksum_line2.ToString("X2") + "\r\n";
 
-        TextOperation.WriteData("AppAndBoot_2In1",FileType.HEX,AppAndBoot_2In1_Str);
+        TextOperation.WriteData("AppAndBoot_2In1",FileType.S19,AppAndBoot_2In1_Str);
 
+        MessageBox.Show("一体包生成成功");
 }
 
     /// <summary>
