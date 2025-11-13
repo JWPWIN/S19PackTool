@@ -97,3 +97,22 @@ __declspec(dllexport) u32 GetCrc32ForForValidityInfo(void *buffer, u32 len)
 
     return crc;
 }
+
+/* This is XR's CRC algorithm.
+ * If the customer has a customized algorithm,
+ * you need to write another function and change
+ * the algorithm association in the $31 memory check */
+__declspec(dllexport) u32 GetCrc32(u08* buffer, u32 len)
+{
+    u32 i;
+    const u08* pbuf = buffer;
+    u32 crc = 0xFFFFFFFFUL;
+
+    for (i = 0; i < len; i++)
+    {
+        crc = CRC_Table[(crc ^ *pbuf++) & 0xFF] ^ (crc >> 8);
+    }
+    crc = ~crc;
+
+    return crc;
+}

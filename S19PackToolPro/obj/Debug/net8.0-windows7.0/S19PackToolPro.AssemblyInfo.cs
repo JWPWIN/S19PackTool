@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("S19PackToolPro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80b8bdb06f7ae436a1ae0f72e691a3c2002bd0b2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67ceb520d7132e21d1bc23776d8b5100db33aea6")]
 [assembly: System.Reflection.AssemblyProductAttribute("S19PackToolPro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("S19PackToolPro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
