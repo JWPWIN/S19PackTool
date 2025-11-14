@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\funscript\\filedatamanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:funscript\\filedatamanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\funscript\\textoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:funscript\\textoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,7 +78,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FileDataManger.cs",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\FunScript\\FileDataManger.cs",
               "RelativeDocumentMoniker": "FunScript\\FileDataManger.cs",
@@ -86,8 +86,7 @@
               "RelativeToolTip": "FunScript\\FileDataManger.cs",
               "ViewState": "AgIAACICAAAAAAAAAAAMwDECAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:47:39.794Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T09:47:39.794Z"
             },
             {
               "$type": "Document",
@@ -99,8 +98,7 @@
               "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAAwAIAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:40:50.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T09:40:50.197Z"
             },
             {
               "$type": "Document",
@@ -124,8 +122,7 @@
               "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\Form1.cs [\u8BBE\u8BA1]",
               "RelativeToolTip": "Form1.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:38:03.143Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
+              "WhenOpened": "2025-10-28T09:38:03.143Z"
             },
             {
               "$type": "Document",
@@ -137,8 +134,7 @@
               "RelativeToolTip": "DllProject\\CrcAndHashLibCrc\\Sha256.c",
               "ViewState": "AgIAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-10-29T08:56:20.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T08:56:20.234Z"
             },
             {
               "$type": "Document",
@@ -149,12 +145,11 @@
               "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\Form1.resx",
               "RelativeToolTip": "Form1.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-10-31T03:48:04.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T03:48:04.244Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TextOperation.cs",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\FunScript\\TextOperation.cs",
               "RelativeDocumentMoniker": "FunScript\\TextOperation.cs",
@@ -162,7 +157,18 @@
               "RelativeToolTip": "FunScript\\TextOperation.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAhwDcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:45:25.456Z",
+              "WhenOpened": "2025-10-28T09:45:25.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "S19PackToolPro",
+              "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\S19PackToolPro.csproj",
+              "RelativeDocumentMoniker": "S19PackToolPro.csproj",
+              "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\S19PackToolPro.csproj",
+              "RelativeToolTip": "S19PackToolPro.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-29T01:10:25.014Z",
               "EditorCaption": ""
             },
             {
@@ -175,8 +181,7 @@
               "RelativeToolTip": "DllProject\\CrcAndHashLibCrc\\Sha256.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-10-29T06:23:29.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T06:23:29.487Z"
             },
             {
               "$type": "Document",
@@ -188,20 +193,7 @@
               "RelativeToolTip": "DllProject\\CrcAndHashLibCrc\\DllTest.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-10-29T03:07:17.898Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "S19PackToolPro",
-              "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\S19PackToolPro.csproj",
-              "RelativeDocumentMoniker": "S19PackToolPro.csproj",
-              "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\S19PackToolPro.csproj",
-              "RelativeToolTip": "S19PackToolPro.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-29T01:10:25.014Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T03:07:17.898Z"
             },
             {
               "$type": "Document",
@@ -213,8 +205,7 @@
               "RelativeToolTip": "DllProject\\CrcAndHashLibCrc\\ValidityInfoCrc32.c",
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAEoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-10-31T01:50:14.572Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T01:50:14.572Z"
             },
             {
               "$type": "Document",

@@ -7,11 +7,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <ApplicationIcon>exeIcon.ico</ApplicationIcon>
+    <ApplicationIcon>ExeIcon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="exeIcon.ico" />
+    <Content Include="ExeIcon.ico" />
   </ItemGroup>
 
 </Project>
