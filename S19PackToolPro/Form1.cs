@@ -15,11 +15,10 @@ namespace S19PackToolPro
         {
             InitializeComponent();
 
+            fileDataManger = new FileDataManger();
+
             //添加当前应用程序路径到win环境变量
             AddExePathToWinSystemEnvironmentPath();
-
-
-            fileDataManger = new FileDataManger();
         }
 
         /// <summary>
@@ -31,18 +30,34 @@ namespace S19PackToolPro
             RegistryKey env = key.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Environment", true); //该项必须已存在
             // 从注册表读取系统环境变量Path值（%SystemRoot%系统变量不会被替换为C:\Windows）
             string pathStr = (string)env.GetValue("PATH", "", RegistryValueOptions.DoNotExpandEnvironmentNames);
-
-            string curExeDirectory = AppDomain.CurrentDomain.BaseDirectory;
-
             // 读取系统环境变量Path值（%SystemRoot%会自动转换为真实的C:\Windows）
             // string pathStr = System.Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine);
+
+            //获取当前exe程序所在文件目录路径
+            string curExeDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             //如果系统环境路径中未包含该路径，则添加当前exe路径至系统环境路径
             if (!pathStr.Contains(curExeDirectory))
             {
-                pathStr += ";" + curExeDirectory;
-                // 修改环境变量Path值
-                Environment.SetEnvironmentVariable("Path", pathStr, EnvironmentVariableTarget.Machine);
+                //在没有添加环境变量的情况下 显示是否添加环境变量的对话框
+                DialogResult MsgBoxResult;//设置对话框的返回值
+                MsgBoxResult = MessageBox.Show("未添加当前路径到系统环境变量，请确认是否添加",//对话框的显示内容 
+                "添加系统环境变量",//对话框的标题 
+                MessageBoxButtons.YesNo,//定义对话框的按钮，这里定义了YSE和NO两个按钮 
+                MessageBoxIcon.Question,//定义对话框内的图表式样，这里是一个黄色三角型内加一个感叹号 
+                MessageBoxDefaultButton.Button2);//定义对话框的按钮式样
+                if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
+                {
+                    //添加当前路径到环境变量
+                    pathStr += ";" + curExeDirectory;
+                    // 修改环境变量Path值
+                    Environment.SetEnvironmentVariable("Path", pathStr, EnvironmentVariableTarget.Machine);
+                }
+                if (MsgBoxResult == DialogResult.No)//如果对话框的返回值是NO（按"N"按钮）
+                {
+                    //退出程序
+                    System.Environment.Exit(0);
+                }
             }
         }
 
