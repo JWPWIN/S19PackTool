@@ -256,6 +256,7 @@
             comboBox_SelectChip.Size = new Size(409, 25);
             comboBox_SelectChip.Items.Add("Chip_Tc334-Adr_AppA0038000/BootA0108000-单字节");
             comboBox_SelectChip.Items.Add("Chip_280039-Adr_App00090000/Boot00080000-双字节");
+            comboBox_SelectChip.Items.Add("Chip_280039-Adr_App00090000/Boot00080000-双字节-D01-DCDC");
             comboBox_SelectChip.SelectedIndex = 0;
             comboBox_SelectChip.TabIndex = 5;
             comboBox_SelectChip.SelectedIndexChanged += ComboBox_ChipSelect_IndexChange;
@@ -281,8 +282,8 @@
             Controls.Add(BootInfo);
             Controls.Add(AppInfo);
             Controls.Add(btn_LoadAppFile);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Xr2In1PkgTool";
+            Text = Name + ApplicationVersion;
             AppInfo.ResumeLayout(false);
             AppInfo.PerformLayout();
             BootInfo.ResumeLayout(false);

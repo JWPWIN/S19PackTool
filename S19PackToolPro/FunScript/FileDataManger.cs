@@ -8,6 +8,7 @@ public enum ChipType
 { 
     Tc334,
     Ti280039,
+    Ti280039_DCDC,
 }
 
 public class FileDataManger
@@ -119,7 +120,7 @@ public class FileDataManger
             }
         }
         //280039-HV App程序读取
-        else if (selectChipType == ChipType.Ti280039)
+        else if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
         {
             string _hvAppStartAdrInFile = string.Empty;
             string _hvAppSize = string.Empty;
@@ -129,11 +130,20 @@ public class FileDataManger
             List<string> _tmpHvAppExportLineStr = new List<string>();
 
             //读取程序包数据
+            string infoReadadr = string.Empty;
+            if (selectChipType == ChipType.Ti280039_DCDC)
+            {
+                infoReadadr = "A00380E0";
+            }
+            else 
+            {
+                infoReadadr = "A00380C0";
+            }
 
             foreach (var item in sArray)
             {
                 //获取Hv app起始地址及大小
-                if (item.Contains("A00380C0"))
+                if (item.Contains(infoReadadr))
                 {
                     string fileOffset = item.Substring(50, 2) + item.Substring(48, 2) + item.Substring(46, 2) + item.Substring(44, 2);
                     appStartAddress = item.Substring(26, 2) + item.Substring(24, 2) + item.Substring(22, 2) + item.Substring(20, 2);

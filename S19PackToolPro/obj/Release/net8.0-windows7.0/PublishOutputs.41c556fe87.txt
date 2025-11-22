@@ -1,0 +1,5 @@
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Release\net8.0-windows7.0\publish\S19PackToolPro.exe
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Release\net8.0-windows7.0\publish\S19PackToolPro.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Release\net8.0-windows7.0\publish\S19PackToolPro.deps.json
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Release\net8.0-windows7.0\publish\S19PackToolPro.runtimeconfig.json
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Release\net8.0-windows7.0\publish\S19PackToolPro.pdb
