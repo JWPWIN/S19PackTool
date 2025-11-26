@@ -1,4 +1,5 @@
 using Microsoft.Win32;
+using S19PackToolPro.Wins;
 using System.Collections;
 using System.Windows.Forms.Design;
 
@@ -7,15 +8,22 @@ namespace S19PackToolPro
     public partial class Form1 : Form
     {
         //应用软件版本号
-        public readonly string ApplicationVersion = "-V1.0-20251120";
+        public readonly string ApplicationVersion = "-V1.0-20251126";
 
         FileDataManger fileDataManger;
+
+        ComProcessBarWin comProcessBarWin;
 
         public Form1()
         {
             InitializeComponent();
 
+            //初始化数据管理器
             fileDataManger = new FileDataManger();
+
+            //初始化进度条窗口
+            comProcessBarWin = new ComProcessBarWin();
+            comProcessBarWin.Hide();
 
             //添加当前应用程序路径到win环境变量
             AddExePathToWinSystemEnvironmentPath();
@@ -50,20 +58,58 @@ namespace S19PackToolPro
                 {
                     //添加当前路径到环境变量
                     pathStr += ";" + curExeDirectory;
-                    // 修改环境变量Path值
-                    Environment.SetEnvironmentVariable("Path", pathStr, EnvironmentVariableTarget.Machine);
+                    // 异步修改环境变量Path值
+                    Task task1 = ReWriteSysEnvPathAsync(pathStr);
+                    Task task2 = comProcessBarWin.TaskProcessTipAsync("正在加载当前路径到系统环境变量...");
+                    Task.WhenAll(task1, task2);
                 }
-                if (MsgBoxResult == DialogResult.No)//如果对话框的返回值是NO（按"N"按钮）
+                else if (MsgBoxResult == DialogResult.No)//如果对话框的返回值是NO（按"N"按钮）
                 {
                     //退出程序
                     System.Environment.Exit(0);
                 }
+                else { }
             }
+        }
+
+        /// <summary>
+        /// 重写系统环境变量 该函数比较耗时 因此异步调用
+        /// </summary>
+        /// <param name="sysEnvPath">系统环境变量</param>
+        /// <returns>None</returns>
+        private async Task ReWriteSysEnvPathAsync(string sysEnvPath)
+        {
+            this.Enabled = false;
+
+            await Task.Run(() => { Environment.SetEnvironmentVariable("Path", sysEnvPath, EnvironmentVariableTarget.Machine); });
+
+            comProcessBarWin.SetTaskProcessBarCurValue(100);
+
+            this.Enabled = true;
         }
 
         private void Btn_LoadAppFile_Click(object sender, EventArgs e)
         {
-            fileDataManger.ParseAppFileData(TextOperation.ReadData());
+            string appData = TextOperation.ReadData();
+
+            Task task1 = PhaseAppDataAsync(appData);
+            Task task2 = comProcessBarWin.TaskProcessTipAsync("正在解析APP数据...");
+            Task.WhenAll(task1, task2);
+        }
+
+        /// <summary>
+        /// 解析APP数据 该函数比较耗时 因此异步调用
+        /// </summary>
+        private async Task PhaseAppDataAsync(string appData)
+        {
+            this.Enabled = false;
+
+            await Task.Run(() => { fileDataManger.ParseAppFileData(appData); });
+
+            //任务完成，同步更新进度条到100结束任务进度窗口
+            comProcessBarWin.SetTaskProcessBarCurValue(100);
+
+            //数据解析完成后更新UI
             this.btn_LoadAppFile.BackColor = System.Drawing.Color.Green;
             //显示APP信息
             this.Text_AppStartAdr.Text = fileDataManger.appStartAddress;
@@ -71,6 +117,7 @@ namespace S19PackToolPro
             this.Text_AppProCode.Text = fileDataManger.appProCode;
             this.Text_AppVer.Text = fileDataManger.appVer;
 
+            this.Enabled = true;
         }
 
         private void btn_LoadBootFile_Click(object sender, EventArgs e)

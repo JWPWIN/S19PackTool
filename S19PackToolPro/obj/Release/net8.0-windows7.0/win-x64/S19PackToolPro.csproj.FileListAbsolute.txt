@@ -475,3 +475,4 @@ D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\win-x64\S19PackToolPro.pdb
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\win-x64\S19PackToolPro.genruntimeconfig.cache
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\win-x64\ref\S19PackToolPro.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\win-x64\S19PackToolPro.Wins.ComProcessBarWin.resources
