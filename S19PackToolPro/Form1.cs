@@ -26,7 +26,7 @@ namespace S19PackToolPro
             comProcessBarWin.Hide();
 
             //添加当前应用程序路径到win环境变量
-            AddExePathToWinSystemEnvironmentPath();
+            //AddExePathToWinSystemEnvironmentPath();
         }
 
         /// <summary>

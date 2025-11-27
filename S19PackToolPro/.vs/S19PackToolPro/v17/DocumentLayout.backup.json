@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\funscript\\filedatamanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:funscript\\filedatamanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|solutionrelative:s19packtoolpro.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{556D8278-3B3E-4925-B91B-A11DA3DB1329}|S19PackToolPro.csproj|d:\\documents\\github-pro\\s19packtool\\s19packtoolpro\\wins\\comprocessbarwin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "S19PackToolPro",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\S19PackToolPro.csproj",
               "RelativeDocumentMoniker": "S19PackToolPro.csproj",
@@ -146,25 +146,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FileDataManger.cs",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\FunScript\\FileDataManger.cs",
               "RelativeDocumentMoniker": "FunScript\\FileDataManger.cs",
               "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\FunScript\\FileDataManger.cs",
               "RelativeToolTip": "FunScript\\FileDataManger.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAqwGoAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAxwGoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:47:39.794Z"
+              "WhenOpened": "2025-10-28T09:47:39.794Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\Documents\\GitHub-Pro\\S19PackTool\\S19PackToolPro\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvxwAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T09:40:48.794Z",
               "EditorCaption": ""
