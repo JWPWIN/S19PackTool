@@ -15,3 +15,4 @@ D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows7.0\r
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows7.0\S19PackToolPro.pdb
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows7.0\S19PackToolPro.genruntimeconfig.cache
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows7.0\ref\S19PackToolPro.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Debug\net8.0-windows7.0\S19PackToolPro.Wins.ComProcessBarWin.resources

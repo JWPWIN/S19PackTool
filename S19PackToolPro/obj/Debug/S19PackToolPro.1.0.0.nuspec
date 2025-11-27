@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>S19PackToolPro</id>
+    <version>1.0.0</version>
+    <authors>S19PackToolPro</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="905bef1d9a64a95dbbf2512f57ac463ee750737f" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net8.0-windows7.0/ExeIcon.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Debug\net8.0-windows7.0\S19PackToolPro.runtimeconfig.json" target="lib\net8.0-windows7.0\S19PackToolPro.runtimeconfig.json" />
+    <file src="D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Debug\net8.0-windows7.0\S19PackToolPro.dll" target="lib\net8.0-windows7.0\S19PackToolPro.dll" />
+    <file src="D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\ExeIcon.ico" target="content\ExeIcon.ico" />
+    <file src="D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\ExeIcon.ico" target="contentFiles\any\net8.0-windows7.0\ExeIcon.ico" />
+  </files>
+</package>

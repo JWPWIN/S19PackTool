@@ -1,0 +1,18 @@
+﻿  pch.cpp
+  dllmain.cpp
+  DllTest.c
+  Sha256.c
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\DllTest.c(7,2): warning C4133: “return”: 从“int *”到“unsigned char *”的类型不兼容
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\Sha256.c(340,25): warning C4090: “函数”: 不同的“const”限定符
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\Sha256.c(400,21): warning C4090: “函数”: 不同的“const”限定符
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\Sha256.c(402,21): warning C4090: “函数”: 不同的“const”限定符
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\Sha256.c(410,21): warning C4090: “函数”: 不同的“const”限定符
+  ValidityInfoCrc32.c
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\ValidityInfoCrc32.c(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+    正在创建库 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\x64\Release\CrcAndHashLibDll.lib 和对象 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\x64\Release\CrcAndHashLibDll.exp
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\DllTest.c(7): warning C4172: 返回局部变量的地址或临时 : res
+  All 9 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  CrcAndHashLibCrc.vcxproj -> D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\DllProject\CrcAndHashLibCrc\x64\Release\CrcAndHashLibDll.dll
