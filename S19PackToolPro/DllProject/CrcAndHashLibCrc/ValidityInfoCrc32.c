@@ -128,7 +128,7 @@ __declspec(dllexport) u32 GetCrc32(u08* buffer, u32 len)
  * Xorout:  0x0000
  * Note:
  *****************************************************************************/
-__declspec(dllexport) u16 CRC16_CCITT_FALSE(u08* data, u08 datalen)
+__declspec(dllexport) u16 CRC16_CCITT_FALSE(u08* data, u32 datalen)
 {
     u16 wCRCin = 0xFFFF;
     u16 wCPoly = 0x1021;
