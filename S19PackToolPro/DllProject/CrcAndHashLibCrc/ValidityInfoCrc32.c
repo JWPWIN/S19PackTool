@@ -116,3 +116,34 @@ __declspec(dllexport) u32 GetCrc32(u08* buffer, u32 len)
 
     return crc;
 }
+
+
+/****************************Info**********************************************
+ * Name:    CRC-16/CCITT-FALSE   x16+x12+x5+1
+ * Width:	16
+ * Poly:    0x1021
+ * Init:    0xFFFF
+ * Refin:   False
+ * Refout:  False
+ * Xorout:  0x0000
+ * Note:
+ *****************************************************************************/
+__declspec(dllexport) u16 CRC16_CCITT_FALSE(u08* data, u08 datalen)
+{
+    u16 wCRCin = 0xFFFF;
+    u16 wCPoly = 0x1021;
+
+    while (datalen--)
+    {
+        wCRCin ^= *(data++) << 8;
+        for (int i = 0; i < 8; i++)
+        {
+            if (wCRCin & 0x8000)
+                wCRCin = (wCRCin << 1) ^ wCPoly;
+            else
+                wCRCin = wCRCin << 1;
+        }
+    }
+    return (wCRCin);
+
+}

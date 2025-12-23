@@ -27,6 +27,9 @@
     <ClInclude Include="SysTypes.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ExportFuncs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
