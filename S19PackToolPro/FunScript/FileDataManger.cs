@@ -250,7 +250,7 @@ public class FileDataManger
 
         //获取boot项目信息：
 
-        if (selectChipType == ChipType.Ti280039)
+        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
         {
             //AppInfo版本结构体信息为 boot起始地址0x00080000+0x200(Ti280039-Boot)
             foreach (var item in sArray)
@@ -342,7 +342,7 @@ public class FileDataManger
         //设置APP验证信息
         uint flag = 0xE92CD298;
         uint selfSize = 0x40;
-        if (selectChipType == ChipType.Ti280039)
+        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
         {
             selfSize = 0x20;
         }
@@ -358,7 +358,7 @@ public class FileDataManger
         unsafe
         {
 
-            if (selectChipType == ChipType.Ti280039)
+            if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
             {
                 //计算APP的CRC值,AppCrc 只要计算APP-S3段的数据域校验
                 fixed (byte* pCSArray = &appDataHex[0])
@@ -407,7 +407,7 @@ public class FileDataManger
         //计算selfCrc
         byte[] selfCrcCheckData = new byte[60];
         uint selfCrc;
-        if (selectChipType == ChipType.Ti280039)
+        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
         {
             byte[] _selfCrcCheckData = { (byte)(flag&0xFF),(byte)(flag>>8&0xFF),(byte)(flag>>16&0xFF),(byte)(flag>>24&0xFF),
                                     (byte)(selfSize),0,0,0,
@@ -488,7 +488,7 @@ public class FileDataManger
 
         //合并APP及BOOT程序包
         string AppAndBoot_2In1_Str = string.Empty;
-        if (selectChipType == ChipType.Ti280039)
+        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
         {
             string _tmpStr1 = string.Empty;
             foreach (var item in hvAppExportLineStr)
@@ -507,7 +507,7 @@ public class FileDataManger
         uint _appStartAdd = (uint)(Int32.Parse(appStartAddress, System.Globalization.NumberStyles.HexNumber));
         uint _appLen = (uint)(Int32.Parse(appLength, System.Globalization.NumberStyles.HexNumber));
         uint _appendAppDataAdd_L1 = _appStartAdd + _appLen;
-        if (selectChipType == ChipType.Ti280039)
+        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
         {
             _appendAppDataAdd_L1 = _appStartAdd + _appLen/2;
         };
@@ -523,7 +523,7 @@ public class FileDataManger
         }
 
         //280049数据域需要切换双字节
-        if (selectChipType == ChipType.Ti280039)
+        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
         {
             string _doubleByteStr = string.Empty;
             for (int i = 0; i < 16; i++)
@@ -542,7 +542,7 @@ public class FileDataManger
 
         _tmp = 0x25;
         uint _appendAppDataAdd_L2 = _appendAppDataAdd_L1;
-        if (selectChipType == ChipType.Ti280039)
+        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
         {
             _appendAppDataAdd_L2 += 0x10;
         }
@@ -560,7 +560,7 @@ public class FileDataManger
         }
 
         //280049数据域需要切换双字节
-        if (selectChipType == ChipType.Ti280039)
+        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
         {
             string _doubleByteStr = string.Empty;
             for (int i = 0; i < 16; i++)
@@ -579,7 +579,11 @@ public class FileDataManger
         string exportFileName = string.Empty;
         if (selectChipType == ChipType.Ti280039)
         {
-            exportFileName = "TI280039";
+            exportFileName = "TI280039_PFC";
+        }
+        else if(selectChipType == ChipType.Ti280039_DCDC)
+        {
+            exportFileName = "TI280039_DCDC";
         }
         else
         {

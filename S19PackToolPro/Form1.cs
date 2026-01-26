@@ -8,7 +8,7 @@ namespace S19PackToolPro
     public partial class Form1 : Form
     {
         //应用软件版本号
-        public readonly string ApplicationVersion = "-V1.0-20251126";
+        public readonly string ApplicationVersion = "-V1.1-20260126";
 
         FileDataManger fileDataManger;
 
