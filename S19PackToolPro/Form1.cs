@@ -8,7 +8,7 @@ namespace S19PackToolPro
     public partial class Form1 : Form
     {
         //应用软件版本号
-        public readonly string ApplicationVersion = "-V1.1-20260126";
+        public readonly string ApplicationVersion = "-V1.2-20260203";
 
         FileDataManger fileDataManger;
 
@@ -91,6 +91,7 @@ namespace S19PackToolPro
         private void Btn_LoadAppFile_Click(object sender, EventArgs e)
         {
             string appData = TextOperation.ReadData();
+            if (appData == string.Empty) return;//未读取到软件数据退出
 
             Task task1 = PhaseAppDataAsync(appData);
             Task task2 = comProcessBarWin.TaskProcessTipAsync("正在解析APP数据...");
@@ -122,7 +123,10 @@ namespace S19PackToolPro
 
         private void btn_LoadBootFile_Click(object sender, EventArgs e)
         {
-            fileDataManger.ParseBootFileData(TextOperation.ReadData());
+            string bootData = TextOperation.ReadData();
+            if (bootData == string.Empty) return;//未读取到软件数据退出
+            fileDataManger.ParseBootFileData(bootData);
+
             this.btn_LoadBootFile.BackColor = System.Drawing.Color.Green;
             //显示Boot信息
             this.Text_BootStartAdr.Text = fileDataManger.bootStartAddress;

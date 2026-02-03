@@ -38,6 +38,37 @@ public class FileDataManger
         ResetFileData(); //初始化重置所有数据
     }
 
+    /// <summary>
+    /// 重置APP文件数据
+    /// </summary>
+    public void ResetAppFileData()
+    {
+        appFileString = string.Empty;
+        appStartAddress = string.Empty;
+        appLength = string.Empty;
+        appDataField = new List<string>();
+        hvAppExportLineStr = new List<string>();
+        appDataFieldStr = string.Empty;
+        appProCode = string.Empty;
+        appVer = string.Empty;
+        hvAppStartAdrInFile = string.Empty;
+    }
+
+    /// <summary>
+    /// 重置BOOT文件数据
+    /// </summary>
+    public void ResetBootFileData()
+    {
+        bootFileString = string.Empty;
+        bootStartAddress = string.Empty;
+        bootLength = string.Empty;
+        bootProCode = string.Empty;
+        bootVer = string.Empty;
+    }
+
+    /// <summary>
+    /// 重置APP和BOOT的文件数据
+    /// </summary>
     public void ResetFileData()
     {
         appFileString = string.Empty;
@@ -62,6 +93,8 @@ public class FileDataManger
     /// <param name="appString">APP S19/Hex信息</param>
     public void ParseAppFileData(string appString)
     {
+        ResetAppFileData();
+
         appFileString = appString;
 
         //解析app软件包数据
@@ -240,6 +273,8 @@ public class FileDataManger
     /// <param name="bootString">APP S19/Hex信息</param>
     public void ParseBootFileData(string bootString)
     {
+        ResetBootFileData();
+
         bootFileString = bootString;
 
         //解析boot软件包数据
@@ -593,9 +628,11 @@ public class FileDataManger
         string systemTime = System.DateTime.Now.ToString("yyyyMMdd-HHmmss");
         exportFileName += systemTime;
 
-        TextOperation.WriteData(exportFileName, FileType.S19,AppAndBoot_2In1_Str);
+        if (TextOperation.WriteData(exportFileName, FileType.S19, AppAndBoot_2In1_Str) == true)
+        {
+            MessageBox.Show("一体包生成成功");
+        }
 
-        MessageBox.Show("一体包生成成功");
 }
 
     /// <summary>

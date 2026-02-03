@@ -4,6 +4,7 @@ D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Release\net8.0-windows7.0
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Release\net8.0-windows7.0\S19PackToolPro.dll
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\bin\Release\net8.0-windows7.0\S19PackToolPro.pdb
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\S19PackToolPro.Form1.resources
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\S19PackToolPro.Wins.ComProcessBarWin.resources
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\S19PackToolPro.csproj.GenerateResource.cache
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\S19PackToolPro.GeneratedMSBuildEditorConfig.editorconfig
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\S19PackToolPro.AssemblyInfoInputs.cache
@@ -15,4 +16,3 @@ D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\S19PackToolPro.pdb
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\S19PackToolPro.genruntimeconfig.cache
 D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\ref\S19PackToolPro.dll
-D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\obj\Release\net8.0-windows7.0\S19PackToolPro.Wins.ComProcessBarWin.resources

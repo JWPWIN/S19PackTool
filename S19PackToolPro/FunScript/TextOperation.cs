@@ -23,7 +23,7 @@ static public class TextOperation
     /// <param name="fileName">文件名</param>
     /// <param name="type">文件类型-后缀</param>
     /// <param name="content">文件具体内容</param>
-    static public void WriteData(string fileName, FileType type, string content)
+    static public bool WriteData(string fileName, FileType type, string content)
     {
         StreamWriter writer;
         string suffix = ""; //文件名后缀
@@ -60,8 +60,8 @@ static public class TextOperation
             suffix = ".txt";
         }
 
-            //选取保存文件路径
-            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+        //选取保存文件路径
+        FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
         folderBrowser.SelectedPath = ".";
         folderBrowser.Description = "请选择保存目录";
 
@@ -85,7 +85,10 @@ static public class TextOperation
             writer.Flush();
             writer.Dispose();
             writer.Close();
+            return true;
         }
+
+        return false;
     }
 
     /// <summary>
@@ -95,7 +98,7 @@ static public class TextOperation
     /// <param name="fileName">文件名</param>
     /// <param name="type">文件类型-后缀</param>
     /// <param name="content">文件具体内容</param>
-    static public void WriteData(string path, string fileName, FileType type, string content)
+    static public bool WriteData(string path, string fileName, FileType type, string content)
     {
         StreamWriter writer;
         string suffix = ""; //文件名后缀
@@ -132,7 +135,10 @@ static public class TextOperation
             writer.Flush();
             writer.Dispose();
             writer.Close();
+
+            return true;
         }
+        return false;
     }
 
     /// <summary>
@@ -140,7 +146,7 @@ static public class TextOperation
     /// </summary>
     static public string ReadData()
     {
-        string allData = "";
+        string allData = string.Empty;
         //选取读取文件路径
         OpenFileDialog openFileDialog = new OpenFileDialog();
         openFileDialog.Filter = "Txt Files (*.txt *.S19 *.Hex)|*.txt;*.S19;*.Hex";
@@ -150,6 +156,9 @@ static public class TextOperation
         if (openFileDialog.ShowDialog() == DialogResult.OK)
         {
             string selectedFile = openFileDialog.FileName;
+            //未选择地址退出
+            if(selectedFile == string.Empty) return string.Empty;
+
             //reader的获取方式有两种
             //第一种
             StreamReader reader = new StreamReader(selectedFile, Encoding.GetEncoding("UTF-8"));

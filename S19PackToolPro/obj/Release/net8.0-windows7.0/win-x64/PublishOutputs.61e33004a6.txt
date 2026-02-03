@@ -1,0 +1,7 @@
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\_TestPublish\S19PackToolPro.pdb
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\_TestPublish\D3DCompiler_47_cor3.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\_TestPublish\PenImc_cor3.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\_TestPublish\PresentationNative_cor3.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\_TestPublish\vcruntime140_cor3.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\_TestPublish\wpfgfx_cor3.dll
+D:\Documents\GitHub-Pro\S19PackTool\S19PackToolPro\_TestPublish\S19PackToolPro.exe
