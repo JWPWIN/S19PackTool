@@ -8,7 +8,7 @@ namespace S19PackToolPro
     public partial class Form1 : Form
     {
         //应用软件版本号
-        public readonly string ApplicationVersion = "-V1.2-20260203";
+        public readonly string ApplicationVersion = "-V2.0-20260310";
 
         FileDataManger fileDataManger;
 
@@ -24,6 +24,18 @@ namespace S19PackToolPro
             //初始化进度条窗口
             comProcessBarWin = new ComProcessBarWin();
             comProcessBarWin.Hide();
+
+            //初始化读取需要支持的CBF项目列表
+            bool readCfgRes = fileDataManger.InitPkgProInfoList();
+            if (readCfgRes == false) System.Environment.Exit(0);//如果读取配置失败则立即退出程序
+            string[] proList = new string[fileDataManger.pkgInfoCfgList.Count];
+            for (int i = 0; i < fileDataManger.pkgInfoCfgList.Count; i++)
+            {
+                proList[i] = fileDataManger.pkgInfoCfgList[i];
+            }
+            comboBox_SelectPkgInfo.Items.AddRange(proList);
+            comboBox_SelectPkgInfo.SelectedIndex = 0;
+            UpdateCurPkgCfgInfo();//更新打包配置信息
 
             //添加当前应用程序路径到win环境变量
             //AddExePathToWinSystemEnvironmentPath();
@@ -131,8 +143,8 @@ namespace S19PackToolPro
             //显示Boot信息
             this.Text_BootStartAdr.Text = fileDataManger.bootStartAddress;
             this.Text_BootLen.Text = fileDataManger.bootLength;
-            this.Text_BootProCode.Text= fileDataManger.bootProCode;
-            this.Text_BootVer.Text= fileDataManger.bootVer;
+            this.Text_BootProCode.Text = fileDataManger.bootProCode;
+            this.Text_BootVer.Text = fileDataManger.bootVer;
 
         }
 
@@ -141,28 +153,61 @@ namespace S19PackToolPro
             fileDataManger.IntegratedPkg();
         }
 
-        private void ComboBox_ChipSelect_IndexChange(object sender, EventArgs e)
-        { 
-            ChipType selcetChipType = (ChipType)(comboBox_SelectChip.SelectedIndex);
+        private void ComboBox_SelectPkgInfo_IndexChange(object sender, EventArgs e)
+        {
+            UpdateCurPkgCfgInfo();//更新打包配置信息
 
-            if (selcetChipType != fileDataManger.selectChipType)
-            {
-                fileDataManger.selectChipType = selcetChipType;
-                //选择芯片更新，重置数据
-                fileDataManger.ResetFileData();
-                this.btn_LoadAppFile.BackColor = Button.DefaultBackColor;
-                this.btn_LoadBootFile.BackColor = Button.DefaultBackColor;
-                this.Text_AppStartAdr.Text = string.Empty;
-                this.Text_AppLen.Text = string.Empty;
-                this.Text_AppProCode.Text = string.Empty;
-                this.Text_AppVer.Text = string.Empty;
-                this.Text_BootStartAdr.Text = string.Empty;
-                this.Text_BootLen.Text = string.Empty;
-                this.Text_BootProCode.Text = string.Empty;
-                this.Text_BootVer.Text = string.Empty;
-            }
-
+            //选择芯片更新，重置数据 更新UI
+            fileDataManger.ResetFileData();
+            this.btn_LoadAppFile.BackColor = Button.DefaultBackColor;
+            this.btn_LoadBootFile.BackColor = Button.DefaultBackColor;
+            this.Text_AppStartAdr.Text = string.Empty;
+            this.Text_AppLen.Text = string.Empty;
+            this.Text_AppProCode.Text = string.Empty;
+            this.Text_AppVer.Text = string.Empty;
+            this.Text_BootStartAdr.Text = string.Empty;
+            this.Text_BootLen.Text = string.Empty;
+            this.Text_BootProCode.Text = string.Empty;
+            this.Text_BootVer.Text = string.Empty;
         }
 
+        /// <summary>
+        /// 更新当前打包配置信息 更新配置数据和更新UI
+        /// </summary>
+        private void UpdateCurPkgCfgInfo()
+        { 
+            //解析打包信息配置字符串
+            string[] pkgInfo = comboBox_SelectPkgInfo.Text.Split("@");
+
+            //打包配置信息长度不正确 退出
+            if (pkgInfo.Count() != 4)
+            {
+                MessageBox.Show("打包配置信息长度异常!");
+                return;
+            }
+
+            string proCode = pkgInfo[0];
+            string chipType = pkgInfo[1];
+            string appAdd = pkgInfo[2];
+            string bootAdd = pkgInfo[3];
+
+            //更新打包数据信息
+            fileDataManger.cfgProCode = proCode;
+
+            if (chipType == "TC334")
+                fileDataManger.cfgChipType = ChipType.Tc334;
+            else if (chipType == "TI280039")
+                fileDataManger.cfgChipType = ChipType.Ti280039;
+            else fileDataManger.cfgChipType = ChipType.Tc334;
+
+            fileDataManger.cfgAppAdd = appAdd;
+            fileDataManger.cfgBootAdd = bootAdd;
+
+            //更新UI
+            label_ProCode.Text = proCode;
+            label_ChipType.Text = chipType;
+            label_AppAdd.Text = appAdd;
+            label_BootAdd.Text = bootAdd;
+        }
     }
 }

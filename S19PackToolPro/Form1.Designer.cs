@@ -49,15 +49,29 @@
             Text_BootStartAdr = new TextBox();
             btn_LoadBootFile = new Button();
             btn_IntegratedPkg = new Button();
-            comboBox_SelectChip = new ComboBox();
+            comboBox_SelectPkgInfo = new ComboBox();
             label9 = new Label();
+            groupBox1 = new GroupBox();
+            label_ChipType = new Label();
+            label12 = new Label();
+            label_ProCode = new Label();
+            label10 = new Label();
+            groupBox2 = new GroupBox();
+            groupBox3 = new GroupBox();
+            label_AppAdd = new Label();
+            label13 = new Label();
+            label_BootAdd = new Label();
+            label14 = new Label();
             AppInfo.SuspendLayout();
             BootInfo.SuspendLayout();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // btn_LoadAppFile
             // 
-            btn_LoadAppFile.Location = new Point(35, 71);
+            btn_LoadAppFile.Location = new Point(9, 22);
             btn_LoadAppFile.Name = "btn_LoadAppFile";
             btn_LoadAppFile.Size = new Size(133, 33);
             btn_LoadAppFile.TabIndex = 0;
@@ -75,9 +89,9 @@
             AppInfo.Controls.Add(Text_AppLen);
             AppInfo.Controls.Add(label1);
             AppInfo.Controls.Add(Text_AppStartAdr);
-            AppInfo.Location = new Point(35, 119);
+            AppInfo.Location = new Point(9, 70);
             AppInfo.Name = "AppInfo";
-            AppInfo.Size = new Size(218, 240);
+            AppInfo.Size = new Size(218, 149);
             AppInfo.TabIndex = 1;
             AppInfo.TabStop = false;
             AppInfo.Text = "App信息";
@@ -156,9 +170,9 @@
             BootInfo.Controls.Add(Text_BootLen);
             BootInfo.Controls.Add(label4);
             BootInfo.Controls.Add(Text_BootStartAdr);
-            BootInfo.Location = new Point(311, 119);
+            BootInfo.Location = new Point(285, 70);
             BootInfo.Name = "BootInfo";
-            BootInfo.Size = new Size(218, 240);
+            BootInfo.Size = new Size(218, 149);
             BootInfo.TabIndex = 2;
             BootInfo.TabStop = false;
             BootInfo.Text = "Boot信息";
@@ -229,7 +243,7 @@
             // 
             // btn_LoadBootFile
             // 
-            btn_LoadBootFile.Location = new Point(311, 71);
+            btn_LoadBootFile.Location = new Point(285, 22);
             btn_LoadBootFile.Name = "btn_LoadBootFile";
             btn_LoadBootFile.Size = new Size(133, 33);
             btn_LoadBootFile.TabIndex = 3;
@@ -239,57 +253,167 @@
             // 
             // btn_IntegratedPkg
             // 
-            btn_IntegratedPkg.Location = new Point(35, 402);
+            btn_IntegratedPkg.Location = new Point(6, 20);
             btn_IntegratedPkg.Name = "btn_IntegratedPkg";
-            btn_IntegratedPkg.Size = new Size(133, 38);
+            btn_IntegratedPkg.Size = new Size(118, 31);
             btn_IntegratedPkg.TabIndex = 4;
             btn_IntegratedPkg.Text = "合成一体包";
             btn_IntegratedPkg.UseVisualStyleBackColor = true;
             btn_IntegratedPkg.Click += btn_IntegratedPkg_Click;
             // 
-            // comboBox_SelectChip
+            // comboBox_SelectPkgInfo
             // 
-            comboBox_SelectChip.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox_SelectChip.FormattingEnabled = true;
-            comboBox_SelectChip.Location = new Point(109, 17);
-            comboBox_SelectChip.Name = "comboBox_SelectChip";
-            comboBox_SelectChip.Size = new Size(409, 25);
-            comboBox_SelectChip.Items.Add("Chip_Tc334-Adr_AppA0038000/BootA0108000-单字节");
-            comboBox_SelectChip.Items.Add("Chip_280039-Adr_App00090000/Boot00080000-双字节");
-            comboBox_SelectChip.Items.Add("Chip_280039-Adr_App00090000/Boot00080000-双字节-D01-DCDC");
-            comboBox_SelectChip.SelectedIndex = 0;
-            comboBox_SelectChip.TabIndex = 5;
-            comboBox_SelectChip.SelectedIndexChanged += ComboBox_ChipSelect_IndexChange;
+            comboBox_SelectPkgInfo.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_SelectPkgInfo.FormattingEnabled = true;
+            comboBox_SelectPkgInfo.Location = new Point(93, 22);
+            comboBox_SelectPkgInfo.Name = "comboBox_SelectPkgInfo";
+            comboBox_SelectPkgInfo.Size = new Size(409, 25);
+            comboBox_SelectPkgInfo.TabIndex = 5;
+            comboBox_SelectPkgInfo.SelectedIndexChanged += ComboBox_SelectPkgInfo_IndexChange;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(35, 20);
+            label9.Font = new Font("Microsoft YaHei UI", 9F);
+            label9.Location = new Point(7, 25);
             label9.Name = "label9";
-            label9.Size = new Size(56, 17);
+            label9.Size = new Size(80, 17);
             label9.TabIndex = 6;
-            label9.Text = "芯片类型";
+            label9.Text = "选择打包信息";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label_BootAdd);
+            groupBox1.Controls.Add(label14);
+            groupBox1.Controls.Add(label_AppAdd);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(label_ChipType);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(label_ProCode);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(comboBox_SelectPkgInfo);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Location = new Point(35, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(660, 100);
+            groupBox1.TabIndex = 7;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "第一步.选择打包信息";
+            // 
+            // label_ChipType
+            // 
+            label_ChipType.AutoSize = true;
+            label_ChipType.Location = new Point(240, 69);
+            label_ChipType.Name = "label_ChipType";
+            label_ChipType.Size = new Size(72, 17);
+            label_ChipType.TabIndex = 10;
+            label_ChipType.Text = "XXXXXXXX";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(166, 69);
+            label12.Name = "label12";
+            label12.Size = new Size(68, 17);
+            label12.TabIndex = 9;
+            label12.Text = "当前芯片：";
+            // 
+            // label_ProCode
+            // 
+            label_ProCode.AutoSize = true;
+            label_ProCode.Location = new Point(93, 69);
+            label_ProCode.Name = "label_ProCode";
+            label_ProCode.Size = new Size(49, 17);
+            label_ProCode.TabIndex = 8;
+            label_ProCode.Text = "FE0000";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(11, 69);
+            label10.Name = "label10";
+            label10.Size = new Size(80, 17);
+            label10.TabIndex = 7;
+            label10.Text = "当前项目号：";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(btn_LoadBootFile);
+            groupBox2.Controls.Add(btn_LoadAppFile);
+            groupBox2.Controls.Add(AppInfo);
+            groupBox2.Controls.Add(BootInfo);
+            groupBox2.Location = new Point(35, 132);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(660, 242);
+            groupBox2.TabIndex = 8;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "第二步.加载打包文件";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(btn_IntegratedPkg);
+            groupBox3.Location = new Point(35, 390);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(660, 57);
+            groupBox3.TabIndex = 9;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "第三步.合成一体包";
+            // 
+            // label_AppAdd
+            // 
+            label_AppAdd.AutoSize = true;
+            label_AppAdd.Location = new Point(405, 69);
+            label_AppAdd.Name = "label_AppAdd";
+            label_AppAdd.Size = new Size(72, 17);
+            label_AppAdd.TabIndex = 12;
+            label_AppAdd.Text = "XXXXXXXX";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(331, 69);
+            label13.Name = "label13";
+            label13.Size = new Size(68, 17);
+            label13.TabIndex = 11;
+            label13.Text = "App地址：";
+            // 
+            // label_BootAdd
+            // 
+            label_BootAdd.AutoSize = true;
+            label_BootAdd.Location = new Point(569, 69);
+            label_BootAdd.Name = "label_BootAdd";
+            label_BootAdd.Size = new Size(72, 17);
+            label_BootAdd.TabIndex = 14;
+            label_BootAdd.Text = "XXXXXXXX";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(495, 69);
+            label14.Name = "label14";
+            label14.Size = new Size(72, 17);
+            label14.TabIndex = 13;
+            label14.Text = "Boot地址：";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label9);
-            Controls.Add(comboBox_SelectChip);
-            Controls.Add(btn_IntegratedPkg);
-            Controls.Add(btn_LoadBootFile);
-            Controls.Add(BootInfo);
-            Controls.Add(AppInfo);
-            Controls.Add(btn_LoadAppFile);
-            Name = "Xr2In1PkgTool";
-            Text = Name + ApplicationVersion;
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Name = "Form1";
+            Text = "XR一体包打包工具" + ApplicationVersion;
             AppInfo.ResumeLayout(false);
             AppInfo.PerformLayout();
             BootInfo.ResumeLayout(false);
             BootInfo.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -315,7 +439,18 @@
         private TextBox Text_BootProCode;
         private Label label8;
         private TextBox Text_BootVer;
-        private ComboBox comboBox_SelectChip;
+        private ComboBox comboBox_SelectPkgInfo;
         private Label label9;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private GroupBox groupBox3;
+        private Label label10;
+        private Label label_ProCode;
+        private Label label_ChipType;
+        private Label label12;
+        private Label label_AppAdd;
+        private Label label13;
+        private Label label_BootAdd;
+        private Label label14;
     }
 }

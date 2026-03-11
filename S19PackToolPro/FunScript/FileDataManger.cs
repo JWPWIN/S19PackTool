@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
 public enum ChipType
 { 
     Tc334,
-    Ti280039,
-    Ti280039_DCDC,
+    Ti280039
+}
+
+public enum SwType
+{
+    APP,
+    BOOT
 }
 
 public class FileDataManger
@@ -30,8 +36,12 @@ public class FileDataManger
     public string bootLength;//boot长度
     public string bootProCode;//Boot项目代码
     public string bootVer;//Boot内部版本号
-    //选择芯片类型
-    public ChipType selectChipType;//选择芯片类型
+    //配置打包信息
+    public List<string> pkgInfoCfgList = new List<string>();
+    public ChipType cfgChipType;//配置芯片类型
+    public string cfgProCode;//当前选择配置的项目号
+    public string cfgAppAdd;//当前选择配置的APP起始地址
+    public string cfgBootAdd;//当前选择配置的BOOT起始地址
 
     public FileDataManger()
     {
@@ -88,6 +98,60 @@ public class FileDataManger
     }
 
     /// <summary>
+    /// 获取地址值
+    /// </summary>
+    /// <param name="addType">地址类型</param>
+    /// <param name="addOffset">地址偏移</param>
+    /// <returns>地址值</returns>
+    public uint GetAddress(SwType swType, uint addOffset = 0)
+    { 
+        uint retAdd = 0;
+        uint ulAppAdd = (uint)(Int32.Parse(cfgAppAdd, System.Globalization.NumberStyles.HexNumber));
+        uint ulBootAdd = (uint)(Int32.Parse(cfgBootAdd, System.Globalization.NumberStyles.HexNumber));
+
+        if (swType == SwType.APP) retAdd = ulAppAdd + addOffset;
+        else if (swType == SwType.BOOT) retAdd = ulBootAdd + addOffset;
+        else { }
+
+        return retAdd;
+    }
+
+    /// <summary>
+    /// 初始化文本配置的项目打包信息列表
+    /// </summary>
+    public bool InitPkgProInfoList()
+    {
+        //配置文件不存在 退出程序
+        if (!File.Exists(System.Environment.CurrentDirectory + @"\Cfg\PkgInfoCfg.txt"))
+        {
+            MessageBox.Show("未找到配置的打包信息列表文件");
+            return false;
+        }
+
+        //读取项目配置信息
+        string proCfgListStr = TextOperation.ReadData(System.Environment.CurrentDirectory + @"\Cfg\PkgInfoCfg.txt");
+
+        string[] proCfgList = proCfgListStr.Split("\r\n");
+
+        int readStartFlag = 0;
+        foreach (var item in proCfgList)
+        {
+            if ((item != "@") && (readStartFlag == 1))
+            {
+                pkgInfoCfgList.Add(item);
+            }
+
+            if (item == "@")
+            {
+                if (readStartFlag == 0) readStartFlag = 1;
+                else readStartFlag = 0;
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
     /// 解析并记录APP信息
     /// </summary>
     /// <param name="appString">APP S19/Hex信息</param>
@@ -101,17 +165,17 @@ public class FileDataManger
         string[] sArray = appFileString.Split("\r\n");//按行分割数据
 
         //Tc334-Lv App程序读取
-        if (selectChipType == ChipType.Tc334)
+        if (cfgChipType == ChipType.Tc334)
         {
             foreach (var item in sArray)
             {
                 //获取App起始地址及长度
-                if (item.Contains("A0038000"))
+                if (item.Substring(4, 8) == GetAddress(SwType.APP).ToString("X8"))
                 {
                     appStartAddress = item.Substring(4, 8);
                 }
 
-                if (item.Contains("A0038020"))
+                if (item.Contains(GetAddress(SwType.APP, 0x20).ToString("X8")))
                 {
                     char[] lenStr = { item[66], item[67],
                        item[64], item[65],
@@ -123,7 +187,7 @@ public class FileDataManger
 
 
                 //获取APP项目信息：AppInfo版本结构体信息为 App起始地址+0x400
-                if (item.Contains("A0038420"))
+                if (item.Contains(GetAddress(SwType.APP, 0x420).ToString("X8")))
                 {
                     //获取项目号
                     appProCode = "FE" + item.Substring(49, 1) + item.Substring(51, 1) + item.Substring(53, 1) + item.Substring(55, 1);
@@ -153,7 +217,7 @@ public class FileDataManger
             }
         }
         //280039-HV App程序读取
-        else if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+        else if (cfgChipType == ChipType.Ti280039)
         {
             string _hvAppStartAdrInFile = string.Empty;
             string _hvAppSize = string.Empty;
@@ -164,13 +228,13 @@ public class FileDataManger
 
             //读取程序包数据
             string infoReadadr = string.Empty;
-            if (selectChipType == ChipType.Ti280039_DCDC)
+            if (cfgProCode == "FE3208-DCDC")
             {
-                infoReadadr = "A00380E0";
+                infoReadadr = GetAddress(SwType.APP, 0xE0).ToString("X8");
             }
             else 
             {
-                infoReadadr = "A00380C0";
+                infoReadadr = GetAddress(SwType.APP, 0xC0).ToString("X8");
             }
 
             foreach (var item in sArray)
@@ -180,17 +244,17 @@ public class FileDataManger
                 {
                     string fileOffset = item.Substring(50, 2) + item.Substring(48, 2) + item.Substring(46, 2) + item.Substring(44, 2);
                     appStartAddress = item.Substring(26, 2) + item.Substring(24, 2) + item.Substring(22, 2) + item.Substring(20, 2);
-                    uint _hvAppStartAdd = (uint)(Int32.Parse("A0038000", System.Globalization.NumberStyles.HexNumber));
+                    uint _hvAppStartAdd = GetAddress(SwType.APP);
                     uint _appOffset = (uint)(Int32.Parse(fileOffset, System.Globalization.NumberStyles.HexNumber));
                     uint _appendAppDataAdd_L1 = _hvAppStartAdd + _appOffset;
-                    _hvAppStartAdrInFile = _appendAppDataAdd_L1.ToString("X2");
+                    _hvAppStartAdrInFile = _appendAppDataAdd_L1.ToString("X8");
                     _hvAppSize = item.Substring(34, 2) + item.Substring(32, 2) + item.Substring(30, 2) + item.Substring(28, 2);
                     appLength = _hvAppSize;
 
                     _ulhvAppStartAdrInFile = (uint)(Int32.Parse(_hvAppStartAdrInFile, System.Globalization.NumberStyles.HexNumber));
                     _ulhvAppEndAdrInFile = _ulhvAppStartAdrInFile + (uint)(Int32.Parse(_hvAppSize, System.Globalization.NumberStyles.HexNumber));
 
-                    hvAppStartAdrInFile = _ulhvAppStartAdrInFile.ToString("X2");
+                    hvAppStartAdrInFile = _ulhvAppStartAdrInFile.ToString("X8");
                 }
 
                 //仅保留S3字段的数据
@@ -221,7 +285,7 @@ public class FileDataManger
 
                 //写入转换后的地址
                 uint _ulRawAdr = (uint)(Int32.Parse(item.Substring(4, 8), System.Globalization.NumberStyles.HexNumber));
-                uint _ulRetAdr = _ulRawAdr - _ulhvAppStartAdrInFile + 0x00090000;
+                uint _ulRetAdr = _ulRawAdr - _ulhvAppStartAdrInFile + (uint)(Int32.Parse(appStartAddress, System.Globalization.NumberStyles.HexNumber));
 
                 if (_ulLastAdr == 0)
                 {
@@ -233,7 +297,7 @@ public class FileDataManger
                 }
 
                 //在HvAppStartAddress + 0x200取HvApp项目号和版本信息
-                if (_ulRetAdr == 0x00090000 + 0x210)
+                if (_ulRetAdr == (uint)(Int32.Parse(appStartAddress, System.Globalization.NumberStyles.HexNumber)) + 0x210)
                 {
                     appVer = item.Substring(74,2) + item.Substring(72, 2) + item.Substring(70, 2) + item.Substring(68, 2);
                     appProCode = ConverAsciiToString(HexStringToByteArray(item.Substring(44, 24)));
@@ -280,22 +344,25 @@ public class FileDataManger
         //解析boot软件包数据
         string[] sArray = bootFileString.Split("\r\n");//按行分割数据
 
-        //获取boot起始地址及长度
-        bootStartAddress = sArray[0].Substring(4, 8);
-
         //获取boot项目信息：
 
-        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+        if (cfgChipType == ChipType.Ti280039)
         {
             //AppInfo版本结构体信息为 boot起始地址0x00080000+0x200(Ti280039-Boot)
             foreach (var item in sArray)
             {
-                if (item.Substring(4, 8) == (0x00080000 + 0x200).ToString("X8"))
+                //获取Boot起始地址及长度
+                if (item.Substring(4, 8) == GetAddress(SwType.BOOT).ToString("X8"))
+                {
+                    bootStartAddress = item.Substring(4, 8);
+                }
+
+                if (item.Substring(4, 8) == GetAddress(SwType.BOOT, 0x200).ToString("X8"))
                 {
                     bootLength = item.Substring(50, 2) + item.Substring(48, 2) + item.Substring(46, 2) + item.Substring(44, 2);
                 }
 
-                if (item.Substring(4,8) == (0x00080000 + 0x210).ToString("X8"))
+                if (item.Substring(4,8) == GetAddress(SwType.BOOT, 0x210).ToString("X8"))
                 {
                     bootVer = item.Substring(74, 2) + item.Substring(72, 2) + item.Substring(70, 2) + item.Substring(68, 2);
                     bootProCode = ConverAsciiToString(HexStringToByteArray(item.Substring(44, 24)));
@@ -308,23 +375,23 @@ public class FileDataManger
             //AppInfo版本结构体信息为 boot起始地址A0108000+0x400(Tc334-Boot)
             foreach (var item in sArray)
             {
-                //获取App起始地址及长度
-                if (item.Contains("A0108000"))
+                //获取Boot起始地址及长度
+                if (item.Substring(4, 8) == GetAddress(SwType.BOOT).ToString("X8"))
                 {
                     bootStartAddress = item.Substring(4, 8);
                 }
 
-                if (item.Contains("A0108400"))
+                if (item.Contains(GetAddress(SwType.BOOT,0x400).ToString("X8")))
                 {
                     //读取boot长度
                     bootLength = item.Substring(50, 2) + item.Substring(48, 2) + item.Substring(46, 2) + item.Substring(44, 2);
                 }
 
-                if (item.Contains("A0108420"))
+                if (item.Contains(GetAddress(SwType.BOOT,0x420).ToString("X8")))
                 {
                     //获取项目号
                     bootProCode = "FE" + item.Substring(49, 1) + item.Substring(51, 1) + item.Substring(53, 1) + item.Substring(55, 1);
-                    //获取App版本号
+                    //获取Boot版本号
                     bootVer = "V" + item.Substring(74, 2) + item.Substring(72, 2)
                              + "B" + item.Substring(70, 2) + item.Substring(68, 2);
 
@@ -357,11 +424,37 @@ public class FileDataManger
     /// </summary>
     public void IntegratedPkg()
     {
+        //检测是否已经正确加载APP和BOOT软件
         if (appFileString == string.Empty || bootFileString == string.Empty)
         {
             MessageBox.Show("APP/BOOT程序包加载异常,请先加载程序");
             return;
         }
+
+        //确认实际读取的程序信息是否和配置的程序信息匹配
+        //用户核对项目及文件信息
+        DialogResult dialogResult = MessageBox.Show(
+                                        "当前选择芯片类型：" + cfgChipType.ToString() + "\r\n"
+                                        + "\r\n"
+                                        + "APP信息确认："
+                                        + "当前配置项目号：" + cfgProCode +"\r\n"
+                                        + "实际读取项目号：" + appProCode + "\r\n"
+                                        + "当前配置起始地址：" + cfgAppAdd + "\r\n"
+                                        + "实际读取起始地址：" + appStartAddress + "\r\n"
+                                        + "\r\n"
+                                        + "BOOT信息确认："
+                                        + "当前配置项目号：" + cfgProCode + "\r\n"
+                                        + "实际读取项目号：" + bootProCode + "\r\n"
+                                        + "当前配置起始地址：" + cfgBootAdd + "\r\n"
+                                        + "实际读取起始地址：" + bootStartAddress + "\r\n",
+
+                                        "请核对打包信息(Yes继续/No退出)！",
+                                        MessageBoxButtons.YesNo,
+                                        MessageBoxIcon.None,
+                                        MessageBoxDefaultButton.Button1,
+                                        MessageBoxOptions.DefaultDesktopOnly);
+
+        if (dialogResult != DialogResult.Yes) return;
 
         //typedef struct AppValidityInfo
         //{
@@ -377,7 +470,7 @@ public class FileDataManger
         //设置APP验证信息
         uint flag = 0xE92CD298;
         uint selfSize = 0x40;
-        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+        if (cfgChipType == ChipType.Ti280039)
         {
             selfSize = 0x20;
         }
@@ -393,7 +486,7 @@ public class FileDataManger
         unsafe
         {
 
-            if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+            if (cfgChipType == ChipType.Ti280039)
             {
                 //计算APP的CRC值,AppCrc 只要计算APP-S3段的数据域校验
                 fixed (byte* pCSArray = &appDataHex[0])
@@ -442,7 +535,7 @@ public class FileDataManger
         //计算selfCrc
         byte[] selfCrcCheckData = new byte[60];
         uint selfCrc;
-        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+        if (cfgChipType == ChipType.Ti280039)
         {
             byte[] _selfCrcCheckData = { (byte)(flag&0xFF),(byte)(flag>>8&0xFF),(byte)(flag>>16&0xFF),(byte)(flag>>24&0xFF),
                                     (byte)(selfSize),0,0,0,
@@ -523,7 +616,7 @@ public class FileDataManger
 
         //合并APP及BOOT程序包
         string AppAndBoot_2In1_Str = string.Empty;
-        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+        if (cfgChipType == ChipType.Ti280039)
         {
             string _tmpStr1 = string.Empty;
             foreach (var item in hvAppExportLineStr)
@@ -542,7 +635,7 @@ public class FileDataManger
         uint _appStartAdd = (uint)(Int32.Parse(appStartAddress, System.Globalization.NumberStyles.HexNumber));
         uint _appLen = (uint)(Int32.Parse(appLength, System.Globalization.NumberStyles.HexNumber));
         uint _appendAppDataAdd_L1 = _appStartAdd + _appLen;
-        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+        if (cfgChipType == ChipType.Ti280039)
         {
             _appendAppDataAdd_L1 = _appStartAdd + _appLen/2;
         };
@@ -558,7 +651,7 @@ public class FileDataManger
         }
 
         //280049数据域需要切换双字节
-        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+        if (cfgChipType == ChipType.Ti280039)
         {
             string _doubleByteStr = string.Empty;
             for (int i = 0; i < 16; i++)
@@ -577,7 +670,7 @@ public class FileDataManger
 
         _tmp = 0x25;
         uint _appendAppDataAdd_L2 = _appendAppDataAdd_L1;
-        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+        if (cfgChipType == ChipType.Ti280039)
         {
             _appendAppDataAdd_L2 += 0x10;
         }
@@ -595,7 +688,7 @@ public class FileDataManger
         }
 
         //280049数据域需要切换双字节
-        if (selectChipType == ChipType.Ti280039 || selectChipType == ChipType.Ti280039_DCDC)
+        if (cfgChipType == ChipType.Ti280039)
         {
             string _doubleByteStr = string.Empty;
             for (int i = 0; i < 16; i++)
@@ -612,13 +705,10 @@ public class FileDataManger
         AppAndBoot_2In1_Str += "S325" + _appendAppDataAdd_L2.ToString("X8") + _tmpData + checksum_line2.ToString("X2") + "\r\n";
 
         string exportFileName = string.Empty;
-        if (selectChipType == ChipType.Ti280039)
+        if (cfgChipType == ChipType.Ti280039)
         {
-            exportFileName = "TI280039_PFC";
-        }
-        else if(selectChipType == ChipType.Ti280039_DCDC)
-        {
-            exportFileName = "TI280039_DCDC";
+            if(cfgProCode == "FE3208-DCDC") exportFileName = "TI280039_DCDC";
+            else exportFileName = "TI280039_PFC";
         }
         else
         {

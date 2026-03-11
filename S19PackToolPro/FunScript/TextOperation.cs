@@ -179,4 +179,34 @@ static public class TextOperation
 
         return allData;
     }
+
+    /// <summary>
+    /// 根据文件路径读取Txt文件数据
+    /// </summary>
+    /// <param name="path">文件路径</param>
+    /// <returns>文件全部数据</returns>
+    static public string ReadData(string path)
+    {
+        string allData = string.Empty;
+
+        string selectedFile = path;
+        //reader的获取方式有两种
+        //第一种
+        StreamReader reader = new StreamReader(selectedFile, Encoding.GetEncoding("UTF-8"));
+
+        //第二种
+        //FileInfo file = new FileInfo(Application.dataPath + "/mytxt.txt");
+        //reader = file.OpenText();//创建使用UTF8编码、从现有文本文件中进行读取的StreamReader
+
+        allData = reader.ReadToEnd();
+        if (allData == null)
+        {
+            MessageBox.Show("没有数据");
+        }
+        reader.Dispose();
+        reader.Close();
+
+
+        return allData;
+    }
 }
